@@ -1,0 +1,16 @@
+#install tenserflow
+[References]
+1.https://www.tensorflow.org/install
+2.https://blog.csdn.net/iytbboy/article/details/81838999
+(Thank you for the authors.)
+
+[Contents]
+1.Currently, official has supportted the tensorflow 2.0 in rasperberry.
+official steps:
+  pip install tensorflow==2.0.0-alpha0
+  
+2.the version below 2.0 steps:
+常见安装错误：
+
+
+
