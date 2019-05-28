@@ -11,6 +11,34 @@ official steps:
   
 2.the version below 2.0 steps:
 常见安装错误：
+>>树莓派安装软件解决依赖方法
+  sudo aptitude install libatlas-base-dev
+  
+  有时候因为apt-get安装软件会因为依赖包版本太高而安装失败，用apt-get updata也没用
+  因此采用自动降级部分包来适配软件。
+  sudo aptitude install
 
-
-
+>>安装过程中断出错
+  ***Memory Error
+      sudo pip install tensorflow==1.9.0
+      
+      >Memory error.
+    解决方法：
+      sudo pip install --no-cache-dir tensorflow==1.9.0
+  
+  ***TypeError: unsupported operand type(s) for -=: 'Retry' and 'int'
+    作者怀疑和网络超时有关，解决方法是逐个安装出现错误时的包和出现错误以前需要下载的包。
+    考虑到这些包的安装先后关系可能影响安装成功的可能性，对跳错前出现的需要安装的包倒序安装。这样处理后安装成功，测试通过。他的顺序如下:
+    sudo pip install --no-cache-dir astor
+    sudo pip install --no-cache-dir funcsigs
+    sudo pip install --no-cache-dir termcolor
+    sudo pip install --no-cache-dir protobuf
+    sudo pip install --no-cache-dir markdown
+    sudo pip install --no-cache-dir futures
+    sudo pip install --no-cache-dir numpy
+    sudo pip install --no-cache-dir mock
+    sudo pip install --no-cache-dir tensorboard==1.9.0
+    sudo pip install --no-cache-dir grpcio
+    sudo pip install --no-cache-dir absl-py
+    sudo pip install --no-cache-dir gast
+    sudo pip install --no-cache-dir tensorflow==1.9.0
